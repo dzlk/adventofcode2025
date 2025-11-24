@@ -72,4 +72,3 @@ func test_solve_part2_example():
 	var result = day.solve_part2(input)
 	
 	assert_eq(result, 45000, "Part 2 should return 45000 (sum of top 3: 24000 + 11000 + 10000)")
-

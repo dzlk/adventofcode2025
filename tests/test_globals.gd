@@ -56,4 +56,3 @@ func test_get_day_dir():
 	
 	result = Globals.get_day_dir(15)
 	assert_eq(result, "res://days/day15/", "Should format day 15 directory correctly")
-
