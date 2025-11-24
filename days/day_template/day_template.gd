@@ -30,3 +30,4 @@ func solve_part2(input: String) -> Variant:
 
 ## Optional: Add helper functions below
 
+

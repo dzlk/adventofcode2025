@@ -28,3 +28,4 @@ To add visualization to your day:
 3. Use `queue_redraw()` and `_draw()` for custom drawing
 4. Add a "Step" button for step-by-step execution if needed
 
+

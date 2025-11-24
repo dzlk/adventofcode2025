@@ -6,7 +6,7 @@ class_name BaseDay
 
 ## UI References (set in scene)
 @onready var title_label: Label = $MarginContainer/VBoxContainer/TitleLabel
-@onready var test_container: VBoxContainer = $MarginContainer/VBoxContainer/TestResults/TestContainer
+@onready var test_container: VBoxContainer = $MarginContainer/VBoxContainer/TestResults/ScrollContainer/TestContainer
 @onready var part1_label: Label = $MarginContainer/VBoxContainer/Results/Part1Result
 @onready var part2_label: Label = $MarginContainer/VBoxContainer/Results/Part2Result
 @onready var back_button: Button = $MarginContainer/VBoxContainer/BackButton
@@ -144,7 +144,6 @@ func get_day_dir() -> String:
 func add_test_result(text: String, color: Color) -> void:
 	if not test_container:
 		return
-	
 	var label = Label.new()
 	label.text = text
 	label.add_theme_color_override("font_color", color)
@@ -160,4 +159,3 @@ func update_result_label(label: Label, text: String, color: Color) -> void:
 ## Back button handler
 func _on_back_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
