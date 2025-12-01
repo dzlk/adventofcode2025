@@ -29,5 +29,3 @@ func solve_part2(input: String) -> Variant:
 	return 0
 
 ## Optional: Add helper functions below
-
-

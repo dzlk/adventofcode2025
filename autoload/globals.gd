@@ -86,4 +86,3 @@ func get_day_dir(day_num: int) -> String:
 ## Check if a day directory exists
 func day_exists(day_num: int) -> bool:
 	return DirAccess.dir_exists_absolute(get_day_dir(day_num))
-

@@ -1,17 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxq3hm5j7vc8c"]
+[gd_scene load_steps=3 format=3 uid="uid://bxq3hm5j7vc8c"]
 
 [ext_resource type="Script" uid="uid://duha3vj70vama" path="res://days/day01/day01.gd" id="1_solution"]
+[ext_resource type="Texture2D" uid="uid://xexa7mjw6i6m" path="res://icon.svg" id="2_y5dun"]
 
-[node name="Day01" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Day01" type="Node2D" node_paths=PackedStringArray("ui_title", "ui_back_button", "ui_part_one", "ui_part_two", "dial")]
 script = ExtResource("1_solution")
+ui_title = NodePath("UI/MarginContainer/VBoxContainer/HBoxContainer/Title")
+ui_back_button = NodePath("UI/MarginContainer/VBoxContainer/HBoxContainer/Back")
+ui_part_one = NodePath("UI/MarginContainer/VBoxContainer/Results/Part1Result")
+ui_part_two = NodePath("UI/MarginContainer/VBoxContainer/Results/Part2Result")
+dial = NodePath("Dial")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 646.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1, 0.1, 0.15, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,44 +38,43 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 28
-text = "Day X: Title"
-horizontal_alignment = 1
-
-[node name="TestResults" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TestResults"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="TestContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TestResults/ScrollContainer"]
+[node name="Title" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 5
+theme_override_font_sizes/font_size = 28
+text = "Day X: Title"
 
-[node name="Results" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="Spacer" type="Label" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
+size_flags_horizontal = 3
+horizontal_alignment = 3
 
-[node name="Part1Result" type="Label" parent="MarginContainer/VBoxContainer/Results"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Part 1: ..."
-horizontal_alignment = 1
-
-[node name="Part2Result" type="Label" parent="MarginContainer/VBoxContainer/Results"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Part 2: ..."
-horizontal_alignment = 1
-
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="UI/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Back to Menu"
+
+[node name="Results" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Part1Result" type="Label" parent="UI/MarginContainer/VBoxContainer/Results"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Part 1: ..."
+
+[node name="Part2Result" type="Label" parent="UI/MarginContainer/VBoxContainer/Results"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Part 2: ..."
+
+[node name="Dial" type="Sprite2D" parent="."]
+position = Vector2(555, 354)
+texture = ExtResource("2_y5dun")
