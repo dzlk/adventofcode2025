@@ -7,7 +7,6 @@
 ```
 advent-of-code-2025/
 ├── days/                    # Решения дней
-│   ├── day_template/        # Шаблон для новых дней
 │   ├── day01/              # День 1 (пример)
 │   │   ├── day01.tscn      # Сцена дня
 │   │   ├── day01.gd        # Логика решения
@@ -39,7 +38,7 @@ advent-of-code-2025/
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/advent-of-code-2025.git
+git clone https://github.com/dzlk/advent-of-code-2025.git
 cd advent-of-code-2025
 ```
 
@@ -67,58 +66,11 @@ cd advent-of-code-2025
 - Нажмите "Run All"
 - Или запустите через командную строку: `godot --path . -s addons/gut/gut_cmdln.gd`
 
-## 📝 Создание нового дня
-
-### Способ 1: Копирование шаблона
-
-1. Скопируйте папку `days/day_template/` в `days/dayXX/`:
-```bash
-cp -r days/day_template days/day05
-cd days/day05
-mv day_template.gd day05.gd
-mv day_template.tscn day05.tscn
-```
-
-2. Откройте `day05.tscn` в текстовом редакторе и измените:
-```
-path="res://days/day_template/day_template.gd"
-→
-path="res://days/day05/day05.gd"
-```
-
-3. Откройте `day05.gd` и настройте:
-```gdscript
-func _init() -> void:
-	day_number = 5  # Номер дня
-	day_title = "Supply Stacks"  # Название задачи
-	
-	test_data = [
-		{"file": "test_input.txt", "part1": 123, "part2": 456, "name": "Example 1"},
-	]
-```
-
-4. Добавьте тестовые данные в `test_input.txt`
-
-5. Реализуйте решение:
-```gdscript
-func solve_part1(input: String) -> Variant:
-	var lines = input.split("\n", false)
-	# Ваше решение здесь
-	return result
-
-func solve_part2(input: String) -> Variant:
-	var lines = input.split("\n", false)
-	# Ваше решение здесь
-	return result
-```
-
-6. Положите личный input в `input.txt` (он не будет закоммичен)
-
 ### Способ 2: Через Godot Editor
 
 1. Создайте новую папку `days/dayXX/`
 2. Создайте новую сцену, наследующую `BaseDay`
-3. Добавьте необходимые UI элементы (см. шаблон)
+3. Добавьте HUD
 4. Создайте скрипт, расширяющий `BaseDay`
 
 ## 🎨 Добавление визуализации
