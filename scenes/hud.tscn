@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh2b3axr5nbel"]
+
+[ext_resource type="Script" uid="uid://cesp01sgi07cl" path="res://scenes/hud.gd" id="1_ahhtf"]
+
+[sub_resource type="Theme" id="Theme_oo0fn"]
+
+[sub_resource type="Theme" id="Theme_ahhtf"]
+
+[sub_resource type="Theme" id="Theme_5ysmq"]
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("ui_title", "ui_part_one", "ui_part_two", "ui_back_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahhtf")
+ui_title = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Title")
+ui_part_one = NodePath("MarginContainer/VBoxContainer/Results/PartOne/Result")
+ui_part_two = NodePath("MarginContainer/VBoxContainer/Results/PartTwo/Result")
+ui_back_button = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Back")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 199.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_oo0fn")
+theme_override_colors/font_color = Color(0.38140658, 0.5993617, 0.63003445, 1)
+theme_override_font_sizes/font_size = 28
+text = "Day X: Title"
+
+[node name="Spacer" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 3
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_ahhtf")
+text = "Back to Menu"
+
+[node name="Results" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PartOne" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Results"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Results/PartOne"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 12
+theme = SubResource("Theme_5ysmq")
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 20
+text = "Part one: "
+
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/Results/PartOne"]
+layout_mode = 2
+size_flags_vertical = 12
+theme_override_colors/font_color = Color(0.521776, 0.6658003, 0.8810086, 1)
+theme_override_font_sizes/font_size = 20
+text = "—"
+
+[node name="PartTwo" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Results"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Results/PartTwo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 12
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 20
+text = "Part two: "
+
+[node name="Result" type="Label" parent="MarginContainer/VBoxContainer/Results/PartTwo"]
+layout_mode = 2
+size_flags_vertical = 12
+theme_override_colors/font_color = Color(0.521776, 0.6658003, 0.8810086, 1)
+theme_override_font_sizes/font_size = 20
+text = "—"
