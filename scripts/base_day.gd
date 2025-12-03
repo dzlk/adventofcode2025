@@ -24,6 +24,9 @@ func solve_part_two(input: String) -> Variant:
 	push_error("solve_part_one not implemented")
 	return 0
 	
+func input_to_lines(input: String, allow_empty: bool = true) -> PackedStringArray:
+	return input.split("\n", allow_empty)
+	
 func run_solutions() -> void:
 	var file_path = Globals.get_day_dir(day) + file
 	var input = Globals.read_file(file_path)
@@ -38,11 +41,17 @@ func run_solutions() -> void:
 	
 	var result = solve_part_one(input)
 	print("-> Part one Result: %s" % str(result))
-	HUD.update_part_one(result)
+	update_part_one(result)
 	
 	# Solve Part 2
 	result = solve_part_two(input)
 	print("-> Part 2 Result: %s" % str(result))
-	HUD.update_part_two(result)
+	update_part_two(result)
 	
 	print("=".repeat(50) + "\n")
+	
+func update_part_one(value: Variant):
+	HUD.update_part_one(value)
+
+func update_part_two(value: Variant):
+	HUD.update_part_two(value)
