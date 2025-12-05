@@ -73,7 +73,7 @@ func error(msg: Variant):
 	_log(Level.ERROR, msg)
 
 
-func debug(msg: String):
+func debug(msg: Variant):
 	_log(Level.DEBUG, msg)
 
 
