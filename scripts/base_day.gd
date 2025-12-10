@@ -68,4 +68,3 @@ func update_part_one(value: Variant):
 
 func update_part_two(value: Variant):
 	HUD.update_part_two(value)
-
