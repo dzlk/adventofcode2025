@@ -23,7 +23,6 @@ func _ready() -> void:
 
 	run_solutions()
 
-
 func solve_part_one(input: String) -> Variant:
 	logger.error("solve_part_one not implemented")
 	logger.debug(input)
@@ -51,12 +50,12 @@ func run_solutions() -> void:
 	logger.info("Solving...")
 	logger.log_delim(logger.Level.INFO, "=", 50)
 
-	var result = solve_part_one(input)
+	var result = await solve_part_one(input)
 	logger.clog("ℹ️Part one result: %s" % str(result), Color.AQUAMARINE)
 	update_part_one(result)
 
 	# Solve Part 2
-	result = solve_part_two(input)
+	result = await solve_part_two(input)
 	logger.clog("ℹ️Part two result: %s" % str(result), Color.AQUAMARINE)
 	update_part_two(result)
 
@@ -69,3 +68,4 @@ func update_part_one(value: Variant):
 
 func update_part_two(value: Variant):
 	HUD.update_part_two(value)
+
