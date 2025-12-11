@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy46erpsn8qb5"]
+
+[ext_resource type="Script" uid="uid://b05q0hv8m0x25" path="res://days/day09/day09.gd" id="1_gosik"]
+[ext_resource type="PackedScene" uid="uid://bh2b3axr5nbel" path="res://scenes/hud.tscn" id="2_gosik"]
+
+[node name="Day09" type="Node"]
+script = ExtResource("1_gosik")
+metadata/_custom_type_script = "uid://dmgc1u40dbugb"
+
+[node name="HUD" parent="." instance=ExtResource("2_gosik")]

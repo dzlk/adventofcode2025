@@ -39,6 +39,19 @@ func input_to_lines(input: String, allow_empty: bool = true) -> PackedStringArra
 	return input.split("\n", allow_empty)
 
 
+func input_to_vector2i(input: String) -> PackedVector2Array:
+	var lines = input_to_lines(input, false)
+	var vectors = PackedVector2Array()
+
+	for line in lines:
+		var c = Globals.extract_integers(line)
+		assert(c.size() == 2)
+
+		vectors.append(Vector2i(c[0], c[1]))
+
+	return vectors
+
+
 func run_solutions() -> void:
 	var file_path = Globals.get_day_dir(day) + file
 	var input = Globals.read_file(file_path)
