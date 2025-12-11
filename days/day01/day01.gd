@@ -8,6 +8,7 @@ var start_code = 50
 var epsilon = 0.01
 	
 func _init() -> void:
+	super()
 	day = 1
 	title = "Day 1: Secret Entrance"
 	

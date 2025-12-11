@@ -7,6 +7,7 @@ func _init() -> void:
 	file = "input.txt"
 
 func solve_part_one(input: String) -> int:
+	super()
 	var res = 0
 	
 	var strs = input.split(',')

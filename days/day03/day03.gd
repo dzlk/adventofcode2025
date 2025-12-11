@@ -1,6 +1,7 @@
 extends BaseDay
 
 func _init() -> void:
+	super()
 	day = 3
 	title = "Day 3: Lobby"
 	
