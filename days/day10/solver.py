@@ -89,4 +89,19 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) > 1 and sys.argv[1] == "--file":
+        # Режим вызова из GDScript: читаем файл и считаем сумму для всех строк
+        with open(sys.argv[2], "r") as f:
+            lines = f.read().splitlines()
+        
+        total = 0
+        for line in lines:
+            if not line.strip():
+                continue
+            target, buttons = parse_line(line)
+            result = solve(target, buttons)
+            total += result
+        print(total)
+    else:
+        main()

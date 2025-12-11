@@ -4,7 +4,7 @@ func _init() -> void:
 	super()
 	day = 10
 	title = "Day 10: Factory"
-	file = "test_input.txt"
+	file = "input.txt"
 	
 	logger.toggle_log_debug(false)
 	
@@ -36,17 +36,25 @@ func solve_part_one(input: String) -> Variant:
 	return res
 	
 func solve_part_two(input: String) -> Variant:
-	var lines = input_to_lines(input, false)
+	return solve_with_python()
+
+func solve_with_python() -> int:
+	var output = []
+	var script_path = "res://days/day10/solver.py"
+	var abs_path = ProjectSettings.globalize_path(script_path)
 	
-	var res = 0
-	for line in lines:
-		var data = parse_line2(line)
-		var target = data[0]
-		var buttons = data[1]
-		
-		logger.debug("target = %s; buttons = %s" % [target, buttons])
+	# Используем Python из venv, где установлены numpy и scipy
+	var python_path = ProjectSettings.globalize_path("res://days/day10/.venv/bin/python3")
 	
-	return res
+	# Передаём абсолютный путь к input файлу
+	var input_path = ProjectSettings.globalize_path(Globals.get_day_dir(day) + file)
+	var exit_code = OS.execute(python_path, [abs_path, "--file", input_path], output, true)
+	
+	if exit_code != 0 or output.is_empty() or output[0].strip_edges() == "":
+		logger.error("Python solver failed (exit=%d): %s" % [exit_code, str(output)])
+		return 0
+	
+	return int(output[0].strip_edges())
 
 func get_masks(nums: Array):
 	var masks = []
